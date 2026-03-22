@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact Page</title>
-</head>
-<body>
-    <h1>Contact Us</h1>
-    <p>Email: support@dealership.com</p>
-    <p>Phone: +91 9876543210</p>
-</body>
-</html>
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to Django Dealership App")
+
+def contact(request):
+    return HttpResponse("Contact us at support@dealership.com")

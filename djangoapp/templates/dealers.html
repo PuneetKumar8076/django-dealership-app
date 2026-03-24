@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dealers</title>
+</head>
+<body>
+
+<h2>Welcome {{ user.username }}</h2>
+
+<h3>Dealers List:</h3>
+
+<ul>
+    {% for dealer in dealers %}
+        <li>
+            {{ dealer.name }} - {{ dealer.city }}
+            <button>Review Dealer</button>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

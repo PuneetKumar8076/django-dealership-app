@@ -2,21 +2,43 @@
 <html>
 <head>
     <title>Dealers</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+            padding: 40px;
+        }
+        h1 {
+            color: #333;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background: blue;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
+
 <body>
 
-<h2>Welcome {{ user.username }}</h2>
+<h1>🚗 Dealers List</h1>
 
-<h3>Dealers List:</h3>
-
-<ul>
-    {% for dealer in dealers %}
-        <li>
-            {{ dealer.name }} - {{ dealer.city }}
-            <button>Review Dealer</button>
-        </li>
-    {% endfor %}
-</ul>
+{% for dealer in dealers %}
+<div class="card">
+    <b>{{ dealer.name }}</b> - {{ dealer.city }}
+    <br><br>
+    <button>Review Dealer</button>
+</div>
+{% endfor %}
 
 </body>
 </html>

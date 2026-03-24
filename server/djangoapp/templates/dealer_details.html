@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dealer Details</title>
+</head>
+<body>
+
+<h1>🚗 Dealer Details</h1>
+
+{% if dealer %}
+    <h2>{{ dealer.name }} - {{ dealer.city }}</h2>
+{% else %}
+    <p>Dealer not found</p>
+{% endif %}
+
+<h3>Reviews:</h3>
+
+{% if reviews %}
+    <ul>
+        {% for review in reviews %}
+            <li>{{ review.review }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No reviews available</p>
+{% endif %}
+
+<br>
+<a href="/">⬅ Back to Dealers</a>
+
+</body>
+</html>

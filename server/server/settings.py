@@ -1,13 +1,13 @@
 from pathlib import Path
+import os
 
+# BASE DIR
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# SECURITY
 SECRET_KEY = 'django-secret-key'
-
 DEBUG = True
-
 ALLOWED_HOSTS = ['*']
-
 
 # APPLICATIONS
 INSTALLED_APPS = [
@@ -21,8 +21,7 @@ INSTALLED_APPS = [
     'djangoapp',
 ]
 
-
-# MIDDLEWARE (FULL)
+# MIDDLEWARE
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -32,17 +31,19 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
-
-# URL
+# URL CONFIG
 ROOT_URLCONF = 'server.urls'
-
 
 # TEMPLATES (IMPORTANT FIX)
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],   # agar templates folder ho toh yahan path de sakte ho
+
+        # TEMPLATE PATH
+        'DIRS': [os.path.join(BASE_DIR, 'djangoapp/templates')],
+
         'APP_DIRS': True,
+
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -54,8 +55,10 @@ TEMPLATES = [
     },
 ]
 
+# WSGI
+WSGI_APPLICATION = 'server.wsgi.application'
 
-# DATABASE (basic sqlite)
+# DATABASE
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -63,28 +66,22 @@ DATABASES = {
     }
 }
 
-
-# PASSWORD VALIDATION (optional but safe)
+# PASSWORD VALIDATION
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
 ]
 
-
 # LANGUAGE & TIME
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
 USE_TZ = True
-
 
 # STATIC FILES
 STATIC_URL = '/static/'
 
-
-# DEFAULT AUTO FIELD
+# DEFAULT FIELD
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

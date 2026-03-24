@@ -32,11 +32,18 @@
 
 <h1>🚗 Dealers List</h1>
 
+<h3>Welcome,  {{ user.username }}</h3>
+
 {% for dealer in dealers %}
 <div class="card">
     <b>{{ dealer.name }}</b> - {{ dealer.city }}
     <br><br>
-    <button>Review Dealer</button>
+
+    <!-- 🔥 MAI KYA LADDLE GHOP GHOP GHOP -->
+    <a href="/dealer/{{ forloop.counter }}/">
+        <button>Review Dealer</button>
+    </a>
+
 </div>
 {% endfor %}
 

@@ -1,12 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-# 🔥 HOME / NORMAL DEALERS (Q17)
+# 🔥 Q17 - NORMAL DEALERS
 def get_dealers(request):
     dealers = [
-        {"name": "BMW Delhi", "city": "Delhi"},
-        {"name": "Audi Mumbai", "city": "Mumbai"},
-        {"name": "Tesla Bangalore", "city": "Bangalore"},
+        {"id": 1, "name": "BMW Delhi", "city": "Delhi"},
+        {"id": 2, "name": "Audi Mumbai", "city": "Mumbai"},
+        {"id": 3, "name": "Tesla Bangalore", "city": "Bangalore"},
     ]
 
     return render(request, 'dealers.html', {
@@ -14,13 +14,13 @@ def get_dealers(request):
     })
 
 
-# 🔥 LOGIN REQUIRED DEALERS (Q18)
+# 🔥 Q18 - LOGIN REQUIRED DEALERS
 @login_required
 def get_dealers_loggedin(request):
     dealers = [
-        {"name": "BMW Delhi", "city": "Delhi"},
-        {"name": "Audi Mumbai", "city": "Mumbai"},
-        {"name": "Tesla Bangalore", "city": "Bangalore"},
+        {"id": 1, "name": "BMW Delhi", "city": "Delhi"},
+        {"id": 2, "name": "Audi Mumbai", "city": "Mumbai"},
+        {"id": 3, "name": "Tesla Bangalore", "city": "Bangalore"},
     ]
 
     return render(request, 'dealers.html', {
@@ -29,13 +29,13 @@ def get_dealers_loggedin(request):
     })
 
 
-# 🔥 FILTER BY STATE (Q18)
+# 🔥 Q18 - FILTER BY STATE
 @login_required
 def get_dealers_by_state(request, state):
     dealers = [
-        {"name": "BMW Delhi", "city": "Delhi"},
-        {"name": "Audi Mumbai", "city": "Mumbai"},
-        {"name": "Tesla Bangalore", "city": "Bangalore"},
+        {"id": 1, "name": "BMW Delhi", "city": "Delhi"},
+        {"id": 2, "name": "Audi Mumbai", "city": "Mumbai"},
+        {"id": 3, "name": "Tesla Bangalore", "city": "Bangalore"},
     ]
 
     filtered = [d for d in dealers if d["city"].lower() == state.lower()]
@@ -46,7 +46,7 @@ def get_dealers_by_state(request, state):
     })
 
 
-# 🔥 NEW (Q19) → DEALER DETAILS + REVIEWS
+# 🔥 Q19 - DEALER DETAILS + REVIEWS
 @login_required
 def dealer_details(request, dealer_id):
     dealers = [
@@ -60,6 +60,7 @@ def dealer_details(request, dealer_id):
     reviews = [
         {"review": "Excellent service"},
         {"review": "Very good experience"},
+        {"review": "Mind Blowing experience with your service"}
     ]
 
     return render(request, 'dealer_details.html', {
@@ -69,11 +70,26 @@ def dealer_details(request, dealer_id):
     })
 
 
-# 🔥 ABOUT PAGE
+# 🔥 Q20 - ADD REVIEW PAGE
+@login_required
+def add_review(request, dealer_id):
+    if request.method == "POST":
+        review = request.POST.get("review")
+        rating = request.POST.get("rating")
+
+        print("Review:", review)
+        print("Rating:", rating)
+
+        return redirect(f"/dealer/{dealer_id}/")
+
+    return render(request, 'add_review.html', {
+        'dealer_id': dealer_id
+    })
+
+
+# 🔥 EXTRA PAGES
 def about(request):
     return render(request, 'About.html')
 
-
-# 🔥 CONTACT PAGE
 def contact(request):
     return render(request, 'Contact.html')

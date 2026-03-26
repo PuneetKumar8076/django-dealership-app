@@ -14,4 +14,6 @@ urlpatterns = [
 
     path('about/', views.about),
     path('contact/', views.contact),
+    path('create-user/', views.create_user),
+
 ]

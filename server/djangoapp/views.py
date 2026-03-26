@@ -93,3 +93,12 @@ def about(request):
 
 def contact(request):
     return render(request, 'Contact.html')
+
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+
+def create_user(request):
+    if not User.objects.filter(username='puneet002').exists():
+        User.objects.create_superuser('puneet', 'test@gmail.com', '0002')
+        return HttpResponse("User created successfully")
+    return HttpResponse("User already exists")

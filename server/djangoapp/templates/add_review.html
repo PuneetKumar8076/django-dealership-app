@@ -11,10 +11,12 @@
     {% csrf_token %}
 
     <label>Dealer ID:</label><br>
-    <input type="text" value="{{ dealer_id }}" readonly><br><br>
+    <input type="text" name="dealer_id" value="{{ dealer_id }}" readonly>
+    <br><br>
 
     <label>Review:</label><br>
-    <textarea name="review" rows="4" cols="40" placeholder="Write your review here"></textarea><br><br>
+    <textarea name="review" rows="4" cols="40" placeholder="Write your review here"></textarea>
+    <br><br>
 
     <label>Rating:</label><br>
     <select name="rating">
@@ -23,7 +25,8 @@
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
-    </select><br><br>
+    </select>
+    <br><br>
 
     <button type="submit">Submit Review</button>
 </form>

@@ -6,9 +6,9 @@ from django.http import HttpResponse
 
 # 🔥 GLOBAL REVIEW STORAGE (OLD + NEW COMBINED)
 reviews_data = {
-    1: ["Excellent service", "Very good experience"],
-    2: ["Nice dealer"],
-    3: ["Mind blowing experience"]
+    1: [{"review": "Excellent service"}, {"review": "Very good experience"}],
+    2: [{"review": "Nice dealer"}],
+    3: [{"review": "Mind blowing experience"}]
 }
 
 

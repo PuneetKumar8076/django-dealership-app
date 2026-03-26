@@ -13,7 +13,7 @@ urlpatterns = [
     path('dealer/<int:dealer_id>/', views.dealer_details, name='dealer_details'),
 
     # 🔥 Q20
-    path('dealer/<int:dealer_id>/review/', views.add_review, name='add_review'),
+    path('dealer/<int:dealer_id>/add_review/', views.add_review, name='add_review'),
 
     path('about/', views.about),
     path('contact/', views.contact),

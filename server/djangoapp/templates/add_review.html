@@ -10,16 +10,20 @@
 <form method="POST">
     {% csrf_token %}
 
+    <!-- Dealer ID -->
     <label>Dealer ID:</label><br>
-    <input type="text" name="dealer_id" value="{{ dealer_id }}" readonly>
+    <input type="text" value="{{ dealer_id }}" readonly>
     <br><br>
 
+    <!-- Review -->
     <label>Review:</label><br>
-    <textarea name="review" rows="4" cols="40" placeholder="Write your review here"></textarea>
+    <textarea name="review" rows="4" cols="40" placeholder="Write your review here" required></textarea>
     <br><br>
 
+    <!-- Rating -->
     <label>Rating:</label><br>
-    <select name="rating">
+    <select name="rating" required>
+        <option value="">Select Rating</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -30,6 +34,10 @@
 
     <button type="submit">Submit Review</button>
 </form>
+
+<br>
+
+<a href="/dealer/{{ dealer_id }}/">← Back to Dealer</a>
 
 </body>
 </html>

@@ -2,22 +2,95 @@
 <html>
 <head>
     <title>Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: monospace;
+            background: black;
+            color: #00ffcc;
+        }
+
+        /* 🔥 FULL SCREEN LOADER */
+        #loader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .box {
+            border: 1px dashed #00ffcc;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* 🔹 LOGIN FORM */
+        #content {
+            display: none;
+            padding: 40px;
+            background: white;
+            color: black;
+            height: 100vh;
+        }
+
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
 </head>
+
 <body>
 
-<h2>Login Page</h2>
+    <!-- 🔥 RENDER STYLE LOADER -->
+    <div id="loader">
+        <div class="box">
+            <h2>INITIALIZING SERVER</h2>
+            <p>Allocating compute resources...</p>
+            <p>Preparing instance...</p>
+            <p>Starting services...</p>
+            <p class="blink">PLEASE WAIT...</p>
+        </div>
+    </div>
 
-<form method="post">
-    {% csrf_token %}
-    
-    <label>Username:</label>
-    <input type="text" name="username"><br><br>
+    <!-- 🔹 LOGIN FORM -->
+    <div id="content">
+        <h2>Login Page</h2>
 
-    <label>Password:</label>
-    <input type="password" name="password"><br><br>
+        <form method="post">
+            {% csrf_token %}
 
-    <button type="submit">Login</button>
-</form>
+            <label>Username:</label>
+            <input type="text" name="username"><br><br>
+
+            <label>Password:</label>
+            <input type="password" name="password"><br><br>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- 🔥 SCRIPT -->
+    <script>
+        setTimeout(function() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        }, 3000); // 3 sec loader
+    </script>
 
 </body>
 </html>

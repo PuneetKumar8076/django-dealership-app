@@ -4,86 +4,56 @@
     <meta charset="UTF-8">
     <title>Contact Us</title>
 
-    <style>
-        body {
-            font-family: Arial;
-            margin: 0;
-            background: #f4f4f4;
-        }
-
-        nav {
-            background: #2c3e50;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            margin: 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav a.active {
-            color: yellow;
-        }
-
-        .container {
-            padding: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px gray;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-        }
-
-        button {
-            background: #2c3e50;
-            color: white;
-            padding: 10px;
-            border: none;
-        }
-    </style>
+    <!-- ✅ REQUIRED CSS LINKS -->
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
 
-<nav>
-    <a href="About.html">About</a>
-    <a href="Contact.html" class="active">Contact Us</a>
-</nav>
+    <!-- ✅ NAVBAR -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Dealership</a>
 
-<div class="container">
+            <div>
+                <a href="About.html" class="nav-link text-white">About</a>
+                <a href="Contact.html" class="nav-link text-warning active">Contact Us</a>
+            </div>
+        </div>
+    </nav>
 
-    <h1>📞 Contact Us</h1>
+    <!-- ✅ CONTENT -->
+    <div class="container mt-5 text-center">
 
-    <div class="card">
-        <h3>Our Office</h3>
-        <p>📍 Mumbai, India</p>
-        <p>📧 email: support@dealership.com</p>
-        <p>📞 Phone: +91 9876543210</p>
+        <h1>📞 Contact Us</h1>
+
+        <!-- ✅ IMAGE (IMPORTANT) -->
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216"
+             alt="Contact"
+             class="img-fluid mb-4"
+             style="max-width: 400px;">
+
+        <!-- CONTACT INFO -->
+        <div class="card p-3 mb-4">
+            <h3>Our Office</h3>
+            <p>📍 Mumbai, India</p>
+            <p>📧 support@dealership.com</p>
+            <p>📞 +91 9876543210</p>
+        </div>
+
+        <!-- FORM -->
+        <div class="card p-3">
+            <h3>Send Message</h3>
+
+            <input type="text" class="form-control" placeholder="Your Name">
+            <input type="email" class="form-control mt-2" placeholder="Your Email">
+            <textarea class="form-control mt-2" placeholder="Your Message"></textarea>
+
+            <button class="btn btn-dark mt-3">Send</button>
+        </div>
+
     </div>
-
-    <div class="card">
-        <h3>Send Message</h3>
-
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
-        <textarea placeholder="Your Message"></textarea>
-
-        <button>Send</button>
-    </div>
-
-</div>
 
 </body>
 </html>

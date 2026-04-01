@@ -1,4 +1,4 @@
-# Django Dealership Application
+# Fullstack Developer Capstone
 
 ## Project Overview
 This project is a full-stack web application built using Django and React. It allows users to browse car dealerships, view dealer details, read and post reviews, and perform sentiment analysis on reviews.
@@ -19,5 +19,5 @@ This project is a full-stack web application built using Django and React. It al
 - GitHub for version control
 
 ## Repository Details
-- Repository Name: django-dealership-app
-- Project Name: Django Dealership Application
+- Repository Name:fullstack_developer_capstone
+- Project Name: Fullstack Developer Capstone
